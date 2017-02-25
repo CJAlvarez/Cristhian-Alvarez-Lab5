@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+using std::cout;
+using std::endl;
+
 // @param int, char
 // Constructor
 Polinomio :: Polinomio(int grade, char variable, vector <int>* f) {
@@ -15,13 +18,13 @@ Polinomio :: Polinomio(int grade, char variable, vector <int>* f) {
 Polinomio :: ~Polinomio() {
 	delete coeficientes;
 	coeficientes -> clear();
-	std :: cout << "cleaning.." << std :: endl;
+	 cout << "cleaning.." <<  endl;
 }
 
 // @return vector <int>*
 // Devuelve el vector de coeficientes
 vector <int>* Polinomio :: getFuncion() {
-	//std :: cout << coeficientes -> size() << std :: endl;
+	// cout << coeficientes -> size() <<  endl;
 	return coeficientes;
 }
 
@@ -37,7 +40,6 @@ void Polinomio :: setFuncion(vector <int>* f) {
 // Agregar coeficiente
 void Polinomio :: setCoeficiente(int coeficiente) {
 	this -> coeficientes -> push_back(coeficiente);
-	std :: cout << coeficientes -> size() << std :: endl;
 }
 
 // @param vector <int>*
@@ -80,28 +82,38 @@ Polinomio* Polinomio :: operator()(Polinomio* p) {
 
 // @param vector <int>*
 // Evaluaigualdad funciones
-bool Polinomio :: operator==(Polinomio* p) {
+bool Polinomio :: operator==(Polinomio* p) {	
 	int i = 0;
-	std :: cout << p -> getFuncion() -> size();
+
 	for (int i = 0; i < p -> getFuncion() -> size(); ++i) {
-		if ((int)this -> coeficientes -> at(i) ==  p -> getFuncion() -> at(i)) {
-			std :: cout << this -> coeficientes -> at(i) ==  p -> getFuncion() -> at(i);
+		if (this -> coeficientes -> at(i) ==  p -> getFuncion() -> at(i)) {
 			i++;
 		}	
 	}
 	if(i == 6)
 	return	true;
 	else
-		return false;
-	//return true;
+	return false;
+
 }
 
 // @param vector <int>*
 // Evalua desigualdad funciones
 bool Polinomio :: operator!=(Polinomio* p) {
-	return true;
+	int i = 0;
+
+	for (int i = 0; i < p -> getFuncion() -> size(); ++i) {
+		if (this -> coeficientes -> at(i) ==  p -> getFuncion() -> at(i)) {
+			i++;
+		}	
+	}
+	if(i != 6)
+	return	true;
+	else
+	return false;
 }
 
+ 
 // @param vector <int>*
 // Flujo funciones
 //Polinomio* operator<<(Polinomio* p) {

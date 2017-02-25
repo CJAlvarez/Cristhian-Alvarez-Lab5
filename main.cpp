@@ -94,14 +94,34 @@ int main() {
 				break;	
 			}
 
+
+
 			// Igual
 			case 6: {
 				if ((*funciones -> at(0) == funciones -> at(1))) {
-					cout << "true k" << endl;
+					cout << "true" << endl;
 				} else {
 					cout << "false" << endl;
 				}
 				break;				
+			}
+
+			// Desigual
+			case 7: {
+				if ((*funciones -> at(0) != funciones -> at(1))) {
+					cout << "true" << endl;
+				} else {
+					cout << "false" << endl;
+				}
+				break;				
+			}
+
+			// out 
+			case 8: {
+				for (int i = 0; i < funciones -> size(); ++i) {
+					cout << funciones -> at(i);
+				}
+				break;
 			}
 			// Salir
 			case 0: {

@@ -1,13 +1,14 @@
 // Polinomo.h
 #pragma once
-#ifndef POLINOMIO_H
-#define POLINOMIO_H
+//#ifndef POLINOMIO_H
+//#define POLINOMIO_H
 
 #include <iostream>
 #include <vector>
 #include <sstream>
+#include <string>
 
-using std :: vector;
+using namespace std;
 
 class Polinomio {
 	private:
@@ -64,8 +65,13 @@ class Polinomio {
 
 		// @param vector <int>*
 		// Flujo funciones
-		Polinomio* operator<<(Polinomio*);
+		friend  ostream& operator << (ostream& out, Polinomio* data){			
+			stringstream ss;						
+			for (int i = 0; i < 6; ++i) {						
+				ss << data -> getFuncion() -> at(i) << data -> variable << "^" << i  << " + ";	
+			}
+			ss << "\n";
+			out << ss.str();	
+		}
 
 };
-
-#endif

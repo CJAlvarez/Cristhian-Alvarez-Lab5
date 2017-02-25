@@ -4,5 +4,5 @@ main.exe: main.o Polinomio.o
 main.o: main.cpp Polinomio.h
 	g++ -c main.cpp Polinomio.cpp
 
-Polinomio.o: Polinomio.h
+Polinomio.o: Polinomio.h Polinomio.cpp
 	g++ -c Polinomio.cpp
