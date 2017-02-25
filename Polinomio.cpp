@@ -95,34 +95,40 @@ int Polinomio :: operator()() {
 // @param vector <int>*
 // Evaluaigualdad funciones
 bool Polinomio :: operator==(Polinomio* p) {	
-	int i = 0;
+	int c = 0;
 
-	for (int i = 0; i < p -> getFuncion() -> size(); ++i) {
+	for (int i = 0; i < p -> getFuncion() -> size(); i++) {			
 		if (this -> coeficientes -> at(i) ==  p -> getFuncion() -> at(i)) {
-			i++;
+			c++;
 		}	
 	}
-	if(i != 6)
-	return	true;
-	else
-	return false;
+	//cout << c;
+	if(c == 6){
+		return	true;
+	}
+	else{
+		return false;
+	}
 
 }
 
 // @param vector <int>*
 // Evalua desigualdad funciones
 bool Polinomio :: operator!=(Polinomio* p) {
-	int i = 0;
+	int c = 0;
 
-	for (int i = 0; i < p -> getFuncion() -> size(); ++i) {
+	for (int i = 0; i < p -> getFuncion() -> size(); i++) {
 		if (this -> coeficientes -> at(i) ==  p -> getFuncion() -> at(i)) {
-			i++;
+			c++;
 		}	
 	}
-	if(i == 6)
-	return	true;
-	else
-	return false;
+	//cout << c;
+	if(c != 6){
+		return	true;
+	}
+	else{
+		return false;
+	}
 }
 
  

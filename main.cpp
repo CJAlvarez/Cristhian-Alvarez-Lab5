@@ -14,14 +14,14 @@ int main() {
 	int operacion = -1;
 
 	vector <Polinomio*>* funciones = new vector <Polinomio*>();	
-	vector <int>* f1 = new vector<int>();		
-	vector <int>* f2 = new vector<int>();			
+	//vector <int>* f1 = new vector<int>();		
+	//vector <int>* f2 = new vector<int>();			
 	cout << "Ingrese variable para las funciones: ";
 	cin >> variable;
 
 	// Crear Funciones
 	cout << "\tPrimera funcion" << endl << endl;
-	funciones -> push_back(new Polinomio(grado, variable, f1));
+	funciones -> push_back(new Polinomio(grado, variable, new vector<int>()));
 	for (int i = 0; i < grado + 1; i++) {
 		cout << "Ingrese coeficiente para " << variable << "^" << i << ": ";
 		cin >> coeficiente;
@@ -30,7 +30,7 @@ int main() {
 	cout << endl;
 
 	cout << "\tSegunda funcion" << endl << endl;
-	funciones -> push_back(new Polinomio(grado, variable, f2));
+	funciones -> push_back(new Polinomio(grado, variable, new vector<int>()));
 	for (int i = 0; i < grado + 1; i++) {
 		cout << "Ingrese coeficiente para " << variable << "^" << i << ": ";
 		cin >> coeficiente;
@@ -38,7 +38,7 @@ int main() {
 	}	
 	cout << endl;
 	do{
-		vector <int>* f3 = new vector<int>();
+	
 		cout << endl;
 
 
@@ -58,7 +58,7 @@ int main() {
 		switch(operacion) {
 			// Suma
 			case 1: {
-				funciones -> push_back(new Polinomio(grado, variable, f3));
+				funciones -> push_back(new Polinomio(grado, variable, new vector<int>()));
 				funciones -> at(funciones -> size() - 1) -> setFuncion((*funciones -> at(0)  + funciones -> at(1)) -> getFuncion() );
 				funciones -> at(funciones -> size() - 1) -> grade = funciones -> at(funciones -> size() - 1) -> getFuncion() -> size();			
 				*funciones -> at(0)  - funciones -> at(1);
@@ -71,7 +71,7 @@ int main() {
 
 			// Resta 
 			case 2: {		
-				funciones -> push_back(new Polinomio(grado, variable, f3));
+				funciones -> push_back(new Polinomio(grado, variable, new vector<int>()));
 				funciones -> at(funciones -> size() - 1) -> setFuncion((*funciones -> at(0)  - funciones -> at(1)) -> getFuncion() );
 				funciones -> at(funciones -> size() - 1) -> grade = funciones -> at(funciones -> size() - 1) -> getFuncion() -> size();			
 				*funciones -> at(0)  + funciones -> at(1);
@@ -84,7 +84,7 @@ int main() {
 
 			// Multiplicar
 			case 3: {
-				funciones -> push_back(new Polinomio(grado, variable, f3));
+				funciones -> push_back(new Polinomio(grado, variable, new vector<int>()));
 				funciones -> at(funciones -> size() - 1) -> setFuncion(funciones -> at(1) -> getFuncion());
 				funciones -> at(funciones -> size() - 1) -> setFuncion( ( *(funciones -> at(funciones -> size()-1))  * funciones -> at(1)) -> getFuncion()) ;
 				
@@ -132,11 +132,11 @@ int main() {
 				return 0;
 			}
 		}
-		// Limpiar Memoria
-		for (int i = 0; i < funciones -> size(); ++i)
-		{
-			delete funciones -> at(i);
-		}
 	} while (true);
+	// Limpiar Memoria
+	for (int i = 0; i < funciones -> size(); ++i)
+	{
+		delete funciones -> at(i);
+	}
 	return 0;
 }
