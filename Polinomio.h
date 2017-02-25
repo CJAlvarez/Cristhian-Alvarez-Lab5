@@ -53,7 +53,7 @@ class Polinomio {
 
 		// @param vector <int>*
 		// Saca factor comun funciones
-		Polinomio* operator()(Polinomio*);
+		int operator()();
 
 		// @param vector <int>*
 		// Evaluaigualdad funciones

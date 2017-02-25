@@ -18,7 +18,7 @@ Polinomio :: Polinomio(int grade, char variable, vector <int>* f) {
 Polinomio :: ~Polinomio() {
 	delete coeficientes;
 	coeficientes -> clear();
-	 cout << "cleaning.." <<  endl;
+	 //cout << "cleaning.." <<  endl;
 }
 
 // @return vector <int>*
@@ -76,8 +76,20 @@ Polinomio* Polinomio :: operator/(Polinomio* p) {
 
 // @param vector <int>*
 // Saca factor comun funciones
-Polinomio* Polinomio :: operator()(Polinomio* p) {	
-	return this;
+int Polinomio :: operator()() {	
+	int final = 0;
+	final = this -> getFuncion() -> at(0);
+	for (int i = 0; i < this -> getFuncion() -> size(); ++i){
+		if(this -> getFuncion() -> at(i) <= final) {
+			final = this -> getFuncion() -> at(i);
+		}
+	}
+	for (int i = 0; i < this -> getFuncion() -> size(); ++i){
+		if(this -> getFuncion() -> at(i)%final != 0) {
+			return 1;
+		}
+	}	
+	return final;
 }
 
 // @param vector <int>*
@@ -90,7 +102,7 @@ bool Polinomio :: operator==(Polinomio* p) {
 			i++;
 		}	
 	}
-	if(i == 6)
+	if(i != 6)
 	return	true;
 	else
 	return false;
@@ -107,7 +119,7 @@ bool Polinomio :: operator!=(Polinomio* p) {
 			i++;
 		}	
 	}
-	if(i != 6)
+	if(i == 6)
 	return	true;
 	else
 	return false;

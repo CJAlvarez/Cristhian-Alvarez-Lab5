@@ -94,7 +94,11 @@ int main() {
 				break;	
 			}
 
-
+			// factor comun
+			case 5: {
+				cout << (*funciones -> at(0))() << endl;;
+				break;
+			}
 
 			// Igual
 			case 6: {
@@ -129,8 +133,10 @@ int main() {
 			}
 		}
 		// Limpiar Memoria
-		//delete funciones -> at(0) ;
-		//delete funciones -> at(1);
+		for (int i = 0; i < funciones -> size(); ++i)
+		{
+			delete funciones -> at(i);
+		}
 	} while (true);
 	return 0;
 }
