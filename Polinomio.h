@@ -11,14 +11,15 @@ using std :: vector;
 
 class Polinomio {
 	private:
-		int grade;
-		vector <int>* coeficientes;
-		char variable;		
+		vector <int>* coeficientes;		
 
 	public:
+		int grade;
+		char variable;		
+
 		// @param int, char
 		// Constructor
-		Polinomio(int, char);
+		Polinomio(int, char, vector <int>*);
 
 		// Destructor
 		~Polinomio();
@@ -27,41 +28,43 @@ class Polinomio {
 		// Devuelve el vector de coeficientes
 		vector <int>* getFuncion();
 
+		void setFuncion(vector <int>*);
+
 		// @param int
 		// Agregar coeficiente
 		void setCoeficiente(int);
 
 		// @param vector <int>*
 		// Suma funciones
-		vector <int>* operator+(Polinomio*);
+		Polinomio* operator+(Polinomio*);
 
 		// @param vector <int>*
 		// Resta funciones
-		vector <int>* operator-(Polinomio*);
+		Polinomio* operator-(Polinomio*);
 
 		// @param vector <int>*
 		// Multiplica funciones
-		vector <int>* operator*(Polinomio*);
+		Polinomio* operator*(Polinomio*);
 
 		// @param vector <int>*
 		// Division funciones
-		vector <int>* operator/(Polinomio*);
+		Polinomio* operator/(Polinomio*);
 
 		// @param vector <int>*
 		// Saca factor comun funciones
-		vector <int>* operator()(Polinomio*);
+		Polinomio* operator()(Polinomio*);
 
 		// @param vector <int>*
 		// Evaluaigualdad funciones
-		vector <int>* operator==(Polinomio*);
+		bool operator==(Polinomio*);
 
 		// @param vector <int>*
 		// Evalua desigualdad funciones
-		vector <int>* operator!=(Polinomio*);
+		bool operator!=(Polinomio*);
 
 		// @param vector <int>*
 		// Flujo funciones
-		vector <int>* operator<<(Polinomio*);
+		Polinomio* operator<<(Polinomio*);
 
 };
 
